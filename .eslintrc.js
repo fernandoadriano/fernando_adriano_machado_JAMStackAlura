@@ -2,6 +2,7 @@ module.exports = {
   env: {
     es2021: true,
     browser: true,
+    jest: true,
   },
   extends: [
     'plugin:react/recommended',
@@ -43,6 +44,9 @@ module.exports = {
           src: './src',
         },
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        packages: [
+          'packages/*',
+        ],
       },
     },
   },
