@@ -1,0 +1,22 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import Text from './index';
+
+
+<Meta title="Components/Text" component={Text} />
+
+# Text 
+
+Aqui você pode aprender a utilizar o componente text! E ele é incrivel
+
+<ArgsTable of={Text} />
+
+## Text Simples
+
+<Canvas>
+  <Story
+    name="Texto Simples"
+    args={{ children: 'Texto Simples' }}
+  >
+    {(args) => <Text {...args} />}
+  </Story>
+</Canvas>

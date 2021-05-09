@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { ButtonWrapper, ButtonWrapperProps } from './styles/ButtonWrapper';
+import { ButtonStyle, ButtonStyleProps } from './styles';
 
 interface ButtonBaseProps {
   /**
@@ -22,7 +22,7 @@ interface ButtonBaseProps {
   type?: 'button' | 'submit' | 'reset';
 }
 
-type ButtonProps = Partial<ButtonBaseProps> & Partial<ButtonWrapperProps>;
+type ButtonProps = Partial<ButtonBaseProps> & Partial<ButtonStyleProps>;
 
 export default function Button({
   children,
@@ -35,7 +35,7 @@ export default function Button({
 }: ButtonProps) {
   return (
   // eslint-disable-next-line react/jsx-props-no-spreading
-    <ButtonWrapper
+    <ButtonStyle
       as={type}
       variant={variant}
       disabled={disabled}
@@ -44,7 +44,7 @@ export default function Button({
       {...props}
     >
       {children}
-    </ButtonWrapper>
+    </ButtonStyle>
   );
 }
 

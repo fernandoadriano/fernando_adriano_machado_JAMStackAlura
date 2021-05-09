@@ -1,26 +1,35 @@
 import get from 'lodash/get';
 import styled, { css } from 'styled-components';
 import breakpointsMedia from 'src/theme/utils/breakpointsMedia';
-import { TextStyleVariants } from 'src/components/foundation/Text';
 import propToStyle from 'src/theme/utils/propToStyle';
 
-export interface ButtonWrapperProps {
+export interface ButtonStyleProps {
+  /**
+   * Variação de cores a ser utilizada no botão
+   */
   variant?: 'primary.main' | 'secondary.main' | 'tertiary.main';
+  /**
+   * Indeca se o botão deve ser renderizado utilizando todo o espaço
+   * disponível.
+   */
   fullWidth?: boolean;
+  /**
+   * Quando TRUE o botão é renderizado usando somente as bordas
+   */
   ghost?: boolean;
 }
 
-const ButtonDefault = css`
+const ButtonStyleDefault = css<ButtonStyleProps>`
     color: ${({ theme, variant }) => get(theme, `colors.${variant}.contrastText`)};
     background-color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
 `;
 
-const ButtonGhost = css`
+const ButtonStyleGhost = css<ButtonStyleProps>`
     color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
     background: transparent;
 `;
 
-export const ButtonWrapper = styled.button<ButtonWrapperProps>`
+export const ButtonStyle = styled.button<ButtonStyleProps>`
     border: 0;
     cursor: pointer;
     padding: 12px 26px;
@@ -31,11 +40,11 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
     
     ${breakpointsMedia({
     xs: css`
-            ${TextStyleVariants.smallestException}
+            ${(props) => props.theme.typographyVariants.smallestException}
         `,
     md: css`
             padding: 12px 43px;
-            ${TextStyleVariants.paragraph1}
+            ${(props) => props.theme.typographyVariants.paragraph1}
         `,
   })}
 
@@ -51,7 +60,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
     width: 100%;
   `};
 
-    ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)};
+    ${({ ghost }) => (ghost ? ButtonStyleGhost : ButtonStyleDefault)};
     &:hover,
     &:focus {
         opacity: .5;
