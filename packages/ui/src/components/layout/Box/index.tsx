@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import propToStyle from 'src/theme/utils/propToStyle';
+import propToStyle from '../../../theme/utils/propToStyle';
 
 interface IBox {
   borderRadiusTheme?: string;
 }
+
 const Box = styled.div<IBox>`
     ${propToStyle('display')}
     ${propToStyle('flexDirection')}

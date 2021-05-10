@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import * as yup from 'yup';
 
-import Button from 'src/components/commons/Button';
-import TextField from 'src/components/forms/TextField';
-import { useForm } from 'src/infra/hooks/forms/useForm';
-import { loginService } from 'src/services/login/loginService';
+import Button from '../../commons/Button';
+import TextField from '../../forms/TextField';
+import { useForm } from '../../../infra/hooks/forms/useForm';
+import { loginService } from '../../../services/login/loginService';
 
 const loginSchema = yup.object().shape({
   usuario: yup

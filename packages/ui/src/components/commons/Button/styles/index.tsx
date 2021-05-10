@@ -1,8 +1,8 @@
 import React from 'react';
 import get from 'lodash/get';
 import styled, { css } from 'styled-components';
-import breakpointsMedia from 'src/theme/utils/breakpointsMedia';
-import propToStyle from 'src/theme/utils/propToStyle';
+import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
+import propToStyle from '../../../../theme/utils/propToStyle';
 
 export interface IButtonStyle {
   /**

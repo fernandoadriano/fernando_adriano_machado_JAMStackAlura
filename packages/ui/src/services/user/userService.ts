@@ -1,5 +1,5 @@
-import isStagingEnv from 'src/infra/env/isStagingEnv';
-import { HttpClient } from 'src/infra/http/HttpClient';
+import isStagingEnv from '../../infra/env/isStagingEnv';
+import { HttpClient } from '../../infra/http/HttpClient';
 import { authService } from '../auth/authService';
 
 const BASE_URL = isStagingEnv

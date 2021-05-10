@@ -1,5 +1,5 @@
 import styled, { css, StyledComponentBase } from 'styled-components';
-import breakpointsMedia from 'src/theme/utils/breakpointsMedia';
+import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
 
 interface IMenuStyle extends StyledComponentBase<any, {}> {
   LeftSide?: any;

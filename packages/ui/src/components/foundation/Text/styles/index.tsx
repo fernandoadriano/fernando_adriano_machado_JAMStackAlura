@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import get from 'lodash/get';
-import propToStyle from 'src/theme/utils/propToStyle';
+import propToStyle from '../../../../theme/utils/propToStyle';
 
 export interface ITextStyle {
   children: any;

@@ -1,8 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-
-import Link from 'src/components/commons/Link';
+import Link from '../Link';
 import { ButtonStyle, IButtonStyle } from './styles';
 
 interface IButton extends IButtonStyle{

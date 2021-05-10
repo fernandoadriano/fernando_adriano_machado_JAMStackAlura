@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import Link from 'src/components/commons/Link';
-import { WebsitePageContext } from 'src/components/wrappers/WebSitePage/context';
+import Link from '../../commons/Link';
+import { WebsitePageContext } from '../../wrappers/WebSitePage/context';
 import { TextStyle, ITextStyle } from './styles';
 
 interface IText extends ITextStyle {

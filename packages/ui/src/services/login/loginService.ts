@@ -1,5 +1,5 @@
 import { setCookie, destroyCookie } from 'nookies';
-import isStagingEnv from 'src/infra/env/isStagingEnv';
+import isStagingEnv from '../../infra/env/isStagingEnv';
 import { HttpClient } from '../../infra/http/HttpClient';
 
 const BASE_URL = isStagingEnv

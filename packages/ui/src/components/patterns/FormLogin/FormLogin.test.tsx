@@ -5,7 +5,7 @@ import {
   act,
   screen,
   waitFor,
-} from 'src/infra/test/testUtils';
+} from '../../../infra/test/testUtils';
 
 import FormLogin from './index';
 

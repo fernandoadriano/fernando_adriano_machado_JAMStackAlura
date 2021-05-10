@@ -1,8 +1,8 @@
 import { parseCookies } from 'nookies';
 import jwt from 'jsonwebtoken';
-import { loginService, LOGIN_COOKIE_APP_TOKEN } from 'src/services/login/loginService';
-import { HttpClient } from 'src/infra/http/HttpClient';
-import isStagingEnv from 'src/infra/env/isStagingEnv';
+import { loginService, LOGIN_COOKIE_APP_TOKEN } from '../login/loginService';
+import { HttpClient } from '../../infra/http/HttpClient';
+import isStagingEnv from '../../infra/env/isStagingEnv';
 
 const BASE_URL = isStagingEnv
   // Back End de DEV
