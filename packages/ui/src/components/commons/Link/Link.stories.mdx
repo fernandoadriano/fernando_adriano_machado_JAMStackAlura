@@ -1,0 +1,38 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import Link from './index';
+
+<!-- const UOL = <img src="https://hp.imguol.com.br/c/home/layout/camaleao/svg/logo.svg" width="195" height="74" /> -->
+
+
+<Meta title="Components/Link" component={Link} />
+
+# Link 
+
+Aqui você pode aprender a utilizar o componente Link! E ele é incrivel
+
+<ArgsTable of={Link} />
+
+## Link Texto
+
+<Canvas>
+  <Story
+    name="Link Texto"
+    args={{ children: 'Link Texto', href: 'https://uol.com.br'}}
+  >
+    {(args) => <Link {...args} />}
+  </Story>
+</Canvas>
+
+## Link Imagem
+
+<Canvas>
+  <Story
+    name="Link Imagem"
+    args={{ 
+      href: 'https://uol.com.br',
+      children: <img src="https://hp.imguol.com.br/c/home/layout/camaleao/svg/logo.svg" width="195" height="74" />,
+    }}
+  >
+    {(args) => <Link {...args} />}
+  </Story>
+</Canvas>

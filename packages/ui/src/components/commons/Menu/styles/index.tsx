@@ -1,8 +1,13 @@
-import styled, { css } from 'styled-components';
-import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
-import { TextStyleVariants } from '../../../foundation/Text';
+import styled, { css, StyledComponentBase } from 'styled-components';
+import breakpointsMedia from 'src/theme/utils/breakpointsMedia';
 
-const MenuWrapper = styled.nav`
+interface IMenuStyle extends StyledComponentBase<any, {}> {
+  LeftSide?: any;
+  CentralSide?: any;
+  RightSide?: any;
+}
+
+const MenuStyle: IMenuStyle = styled.nav`
   font-family: 'Rubik', sans-serif;
   display: flex;
   align-items: center;
@@ -30,7 +35,7 @@ const MenuWrapper = styled.nav`
   })}
 `;
 
-MenuWrapper.LeftSide = styled.div`
+MenuStyle.LeftSide = styled.div`
   padding: 0;
   margin: 0;
   order: 1;
@@ -48,7 +53,7 @@ MenuWrapper.LeftSide = styled.div`
   })}
 `;
 
-MenuWrapper.CentralSide = styled.div`
+MenuStyle.CentralSide = styled.div`
   padding: 0;
   margin: 0;
   order: 3;
@@ -82,10 +87,10 @@ MenuWrapper.CentralSide = styled.div`
     transition: 200ms ease-in-out;
     ${breakpointsMedia({
     xs: css`
-        ${TextStyleVariants.smallestException}
+        ${({ theme }) => theme.typographyVariants.smallestException}
     `,
     md: css`
-      ${TextStyleVariants.paragraph1}
+      ${({ theme }) => theme.typographyVariants.paragraph1}
     `,
   })}
     &:hover,
@@ -97,7 +102,7 @@ MenuWrapper.CentralSide = styled.div`
   }
 `;
 
-MenuWrapper.RightSide = styled.div`
+MenuStyle.RightSide = styled.div`
   padding: 0;
   margin: 0;
   display: flex;
@@ -111,4 +116,4 @@ MenuWrapper.RightSide = styled.div`
   })}
 `;
 
-export { MenuWrapper as default };
+export default MenuStyle;

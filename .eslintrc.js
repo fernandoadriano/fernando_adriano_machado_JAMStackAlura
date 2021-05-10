@@ -2,6 +2,7 @@ module.exports = {
   env: {
     es2021: true,
     browser: true,
+    node: true,
     jest: true,
   },
   extends: [
@@ -24,6 +25,8 @@ module.exports = {
     JSX: 'readonly',
   },
   rules: {
+    'react/prop-types': 'off',
+    'react/require-default-props': 'off',
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }],

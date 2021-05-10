@@ -15,7 +15,11 @@ Aqui você pode aprender a utilizar o componente button! E ele é incrivel
 <Canvas>
   <Story
     name="Botão Simples"
-    args={{ children: 'Botão Simples' }}
+    args={{ 
+      children: 'Botão Simples',
+      type: 'button',
+      variant: 'primary.main'
+    }}
   >
     {(args) => <Button {...args} />}
   </Story>

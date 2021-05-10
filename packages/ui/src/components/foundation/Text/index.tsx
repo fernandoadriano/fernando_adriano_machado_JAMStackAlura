@@ -3,43 +3,32 @@
 import React from 'react';
 import Link from 'src/components/commons/Link';
 import { WebsitePageContext } from 'src/components/wrappers/WebSitePage/context';
+import { TextStyle, ITextStyle } from './styles';
 
-import { TextStyle, TextStyleProps } from './styles';
+interface IText extends ITextStyle {
+  /**
+   * Texto ou elemento a ser renderizado
+   */
+  children: JSX.Element | string;
+  /**
+   * Chave a ser utilizada no CMS para recuperar o texto a ser mostrado na tela
+   */
+  cmsKey?: string;
+  /**
+   * Tipo de *tag* a ser renderizado. Ignorado quando informado um *href*
+   */
+  tag?: 'a' | 'div' | 'h1' | 'p' | 'span';
+}
 
-// interface TextBaseProps {
-//   children: JSX.Element;
-//   cmsKey?: string;
-//   href?: string;
-//   tag?: 'div' | 'span' | 'p';
-// }
-
-type TextProps = Partial<{
-    /**
-     * Texto ou elemento a ser renderizado
-     */
-    children: JSX.Element;
-    /**
-     * Chave a ser utilizada no CMS para recuperar o texto a ser mostrado na tela
-     */
-    cmsKey?: string;
-    /**
-     * Quando informado indica o link a ser utilizado e o elemento é renderizado
-     * como uma *tag* <a>
-     */
-    href?: string;
-    /**
-     * Tipo de *tag* a ser renderizado. Ignorado quando informado um *href*
-     */
-    tag?: 'div' | 'span' | 'p';
-  }> & Partial<TextStyleProps>;
 export default function Text({
   children,
   cmsKey,
+  color = 'primary.main',
   href,
-  tag,
-  variant,
+  tag = 'span',
+  variant = 'paragraph1',
   ...props
-}: TextProps) {
+}: IText) {
   const websitePageContext = React.useContext(WebsitePageContext);
 
   const componentContent: string = cmsKey
@@ -50,6 +39,7 @@ export default function Text({
     return (
       <TextStyle
         as={Link}
+        color={color}
         variant={variant}
         href={href}
         {...props}
@@ -62,6 +52,7 @@ export default function Text({
   return (
     <TextStyle
       as={tag}
+      color={color}
       variant={variant}
       {...props}
     >
@@ -69,10 +60,3 @@ export default function Text({
     </TextStyle>
   );
 }
-
-Text.defaultProps = {
-  tag: 'span',
-  variant: 'paragraph1',
-  href: undefined,
-  cmsKey: undefined,
-};

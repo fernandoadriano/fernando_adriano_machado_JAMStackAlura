@@ -2,7 +2,18 @@ import styled from 'styled-components';
 import get from 'lodash/get';
 import propToStyle from 'src/theme/utils/propToStyle';
 
-export interface TextStyleProps {
+export interface ITextStyle {
+  children: any;
+  /**
+   * Ajusta a cor da fonte
+   */
+  color?: 'primary.main' | 'secondary.main' | 'tertiary.main' | 'tertiary.light';
+  /**
+   * Quando informado indica o link a ser utilizado e o elemento é renderizado
+   * como uma *tag* <a>
+   */
+  href?: string;
+  marginBottom? : string | object;
   /**
    * Tipo de texto a ser disponibilizado
    */
@@ -10,7 +21,7 @@ export interface TextStyleProps {
 }
 
 // ${(props) => TextStyleVariants[String(props.variant)]};
-export const TextStyle = styled.span<TextStyleProps>`
+export const TextStyle = styled.span<ITextStyle>`
    ${(props) => props.theme.typographyVariants[String(props.variant)]};
     color: ${({ theme, color }) => get(theme, `colors.${color}.color`)};
     ${propToStyle('textAlign')}    

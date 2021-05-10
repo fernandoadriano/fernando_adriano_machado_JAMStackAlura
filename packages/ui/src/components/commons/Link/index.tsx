@@ -18,7 +18,18 @@ const StyledLink = styled.a`
     opacity: .5;
   }
 `;
-export default function Link({ href, children, ...props }) {
+
+interface ILink {
+  /**
+   * Conteúdo a ser mostrado no *Link* como, por exemplo, texto ou imagem
+   */
+  children: JSX.Element;
+  /**
+   * *URL* a para referenciar no *link*
+   */
+  href: string;
+}
+export default function Link({ href, children, ...props }: ILink) {
   return (
     <NextLink href={href} passHref>
       <StyledLink {...props}>

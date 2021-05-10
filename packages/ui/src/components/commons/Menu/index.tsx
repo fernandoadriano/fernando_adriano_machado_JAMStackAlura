@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import Logo from 'src/theme/Logo';
 import Text from 'src/components/foundation/Text';
 
-import MenuWrapper from './styles/MenuWrapper';
-import Button from '../Button';
+import Button from 'src/components/commons/Button';
+import MenuStyle from './styles';
 
 const links = [
   {
@@ -21,35 +21,34 @@ const links = [
     url: '/sobre',
   },
 ];
-export default function Menu({ onCadastrarClick }) {
+
+interface IMenu {
+  onCadastrarClick?: () => {};
+}
+export default function Menu({ onCadastrarClick }: IMenu) {
   return (
-    <MenuWrapper>
-      <MenuWrapper.LeftSide>
-        <Logo />
-      </MenuWrapper.LeftSide>
-      <MenuWrapper.CentralSide>
+    <MenuStyle>
+      <MenuStyle.LeftSide>
+        <Logo size="small" />
+      </MenuStyle.LeftSide>
+      <MenuStyle.CentralSide>
         {links.map((link) => (
           <li key={link.url}>
-            {/* <NextLink href={link.url}>
-              <a>
-                {link.texto}
-              </a>
-            </NextLink> */}
             <Text variant="smallestException" tag="a" href={link.url}>
               {link.texto}
             </Text>
           </li>
         ))}
-      </MenuWrapper.CentralSide>
-      <MenuWrapper.RightSide>
+      </MenuStyle.CentralSide>
+      <MenuStyle.RightSide>
         <Button ghost variant="secondary.main" href="/app/login/">
           Entrar
         </Button>
         <Button variant="primary.main" onClick={onCadastrarClick}>
           Cadastrar
         </Button>
-      </MenuWrapper.RightSide>
-    </MenuWrapper>
+      </MenuStyle.RightSide>
+    </MenuStyle>
   );
 }
 

@@ -12,7 +12,10 @@ const sizes = {
 };
 
 // eslint-disable-next-line react/prop-types
-export default function Logo({ size }) {
+interface ILogo {
+  size: 'small' | 'large';
+}
+export default function Logo({ size }: ILogo) {
   const { width, height } = sizes[size] || sizes.small;
   return (
     <svg width={width} height={height} viewBox="0 0 131 32" fill="none" xmlns="http://www.w3.org/2000/svg">

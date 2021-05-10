@@ -27,10 +27,10 @@ const FormContent = () => {
     usuario: 'fadriano01',
   });
 
-  const handleChange = (event) => setUserInfo({ ...userInfo, [event.target.getAttribute('name')]: event.target.value });
+  const handleChange = (event: any) => setUserInfo({ ...userInfo, [event.target.getAttribute('name')]: event.target.value });
   const isFormInvalid = userInfo.usuario.length === 0 || userInfo.nome.length === 0;
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
 
     setIsFormSubmited(true);
@@ -82,7 +82,7 @@ const FormContent = () => {
         color="tertiary.light"
         marginBottom="32px"
       >
-        Você está a um passo de saber tudoo que está
+        Você está a um passo de saber tudo o que está
         rolando no bairro, complete seu cadastro agora!
       </Text>
 
@@ -143,7 +143,7 @@ const FormContent = () => {
   );
 };
 
-const FormCadastro = (propsModal) => (
+const FormCadastro = (propsModal: any) => (
   <Grid.Row
     marginLeft={0}
     marginRight={0}

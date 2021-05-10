@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import styled, { createGlobalStyle, css } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+import { ModalStyle, IModalStyle } from './styles';
 
 const LockScroll = createGlobalStyle`
   body {
@@ -9,74 +9,52 @@ const LockScroll = createGlobalStyle`
   }
 `;
 
-const ModalWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  background: rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  overflow: scroll;
-  transition: .3s;
-  z-index: 100;
+interface IModal extends IModalStyle {
+  onClose: () => void;
+  children: any;
+}
 
-  ${({ isOpen }) => (
-    isOpen
-      ? css`opacity: 1;
-          pointer-events: all;
-      `
-      : css`opacity: 0;
-          pointer-events: none;
-      `
-  )};
-`;
+export default function Modal({
+  isOpen = false,
+  onClose,
+  children,
+}: IModal) {
+  return (
+    <ModalStyle
+      isOpen={isOpen}
+      onClick={(event) => {
+        // @ts-ignore
+        const isSafeArea = event.target.closest('[data-modal-safe-area="true"]');
 
-const Modal = ({ isOpen, onClose, children }) => (
-  <ModalWrapper
-    isOpen={isOpen}
-    onClick={(event) => {
-      const isSafeArea = event.target.closest('[data-modal-safe-area="true"]');
-
-      if (!isSafeArea) {
-        onClose();
-      }
-    }}
-  >
-    {isOpen && <LockScroll />}
-
-    <motion.div
-      variants={{
-        opened: {
-          x: 0,
-        },
-        closed: {
-          x: '100%',
-        },
-      }}
-      animate={isOpen ? 'opened' : 'closed'}
-      transition={{
-        duration: 0.3,
-      }}
-      style={{
-        display: 'flex',
-        flex: 1,
+        if (!isSafeArea) {
+          onClose();
+        }
       }}
     >
-      {children({
-        'data-modal-safe-area': 'true',
-      })}
-    </motion.div>
-  </ModalWrapper>
-);
+      {isOpen && <LockScroll />}
 
-Modal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  children: PropTypes.func.isRequired,
-};
-
-export default Modal;
+      <motion.div
+        variants={{
+          opened: {
+            x: 0,
+          },
+          closed: {
+            x: '100%',
+          },
+        }}
+        animate={isOpen ? 'opened' : 'closed'}
+        transition={{
+          duration: 0.3,
+        }}
+        style={{
+          display: 'flex',
+          flex: 1,
+        }}
+      >
+        {children({
+          'data-modal-safe-area': 'true',
+        })}
+      </motion.div>
+    </ModalStyle>
+  );
+}

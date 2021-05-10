@@ -1,58 +1,45 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { ButtonStyle, ButtonStyleProps } from './styles';
 
-interface ButtonBaseProps {
+import Link from 'src/components/commons/Link';
+import { ButtonStyle, IButtonStyle } from './styles';
+
+interface IButton extends IButtonStyle{
   /**
    * Passe via children o que deseja renderizar dentro do botão
    */
   children: React.ReactNode;
-  /**
-   * Essa prop usa o disabled padrão do HTML e aplica um CSS junto
-   */
-  disabled?: boolean;
-  /**
-   * Função a ser executada quando clicar o botão
-   */
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
-  /**
-   * Tipo de elemento a ser renderizado
-   */
-  type?: 'button' | 'submit' | 'reset';
 }
-
-type ButtonProps = Partial<ButtonBaseProps> & Partial<ButtonStyleProps>;
 
 export default function Button({
   children,
-  disabled,
-  fullWidth,
-  ghost,
-  type,
-  variant,
+  disabled = false,
+  fullWidth = false,
+  ghost = false,
+  href,
+  onClick = () => {},
+  type = 'button',
+  variant = 'primary.main',
   ...props
-}: ButtonProps) {
+}: IButton) {
+  const hasHref = Boolean(href);
+  const tag = hasHref ? Link : 'button';
+
   return (
   // eslint-disable-next-line react/jsx-props-no-spreading
     <ButtonStyle
-      as={type}
-      variant={variant}
+      as={tag}
       disabled={disabled}
       fullWidth={fullWidth}
       ghost={ghost}
+      href={href}
+      onClick={onClick}
+      type={type}
+      variant={variant}
       {...props}
     >
       {children}
     </ButtonStyle>
   );
 }
-
-Button.defaultProps = {
-  variant: 'primary.main',
-  disabled: false,
-  fullWidth: false,
-  ghost: false,
-  onClick: () => {},
-  type: 'submit',
-};

@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import propToStyle from 'src/theme/utils/propToStyle';
 
-const Box = styled.div`
+interface IBox {
+  borderRadiusTheme?: string;
+}
+const Box = styled.div<IBox>`
     ${propToStyle('display')}
     ${propToStyle('flexDirection')}
     ${propToStyle('justifyContent')}
