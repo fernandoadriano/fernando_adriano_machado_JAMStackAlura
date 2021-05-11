@@ -1,4 +1,4 @@
-import { CMSGraphQLClient, gql } from 'src/infra/cms/CMSGraphQLClient';
+import { CMSGraphQLClient, gql } from '../../../infra/cms/CMSGraphQLClient';
 
 // eslint-disable-next-line import/prefer-default-export
 export async function getContent({ preview }) {

@@ -1,12 +1,4 @@
 import React from 'react';
-// import {
-//   Text,
-//   Button,
-//   Grid,
-//   WebsitePageContext,
-//   Box,
-//   websitePageHOC,
-// } from '@fernandoadriano/ui';
 import Text from '@fernandoadriano/ui/src/components/foundation/Text';
 import Button from '@fernandoadriano/ui/src/components/commons/Button';
 import Grid from '@fernandoadriano/ui/src/components/layout/Grid';

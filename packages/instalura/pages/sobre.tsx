@@ -1,5 +1,5 @@
-import AboutScreen, { getContent } from 'src/components/screens/AboutScreen';
-import websitePageHOC from 'src/components/wrappers/WebSitePage/hoc';
+import AboutScreen, { getContent } from '@fernandoadriano/ui/src/components/screens/AboutScreen';
+import websitePageHOC from '@fernandoadriano/ui/src/components/wrappers/WebSitePage/hoc';
 
 export async function getStaticProps({ preview }) {
   const messages = await getContent({ preview });

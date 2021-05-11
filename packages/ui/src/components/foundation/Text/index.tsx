@@ -5,15 +5,16 @@ import Link from '../../commons/Link';
 import { WebsitePageContext } from '../../wrappers/WebSitePage/context';
 import { TextStyle, ITextStyle } from './styles';
 
-interface IText extends ITextStyle {
+export interface IText extends ITextStyle {
   /**
    * Texto ou elemento a ser renderizado
    */
-  children: JSX.Element | string;
+  children: JSX.Element | string | undefined;
   /**
    * Chave a ser utilizada no CMS para recuperar o texto a ser mostrado na tela
    */
   cmsKey?: string;
+  role?: string;
   /**
    * Tipo de *tag* a ser renderizado. Ignorado quando informado um *href*
    */

@@ -7,7 +7,7 @@ export interface ITextStyle {
   /**
    * Ajusta a cor da fonte
    */
-  color?: 'primary.main' | 'secondary.main' | 'tertiary.main' | 'tertiary.light';
+  color?: 'error.main' | 'primary.main' | 'secondary.main' | 'tertiary.main' | 'tertiary.light';
   /**
    * Quando informado indica o link a ser utilizado e o elemento é renderizado
    * como uma *tag* <a>

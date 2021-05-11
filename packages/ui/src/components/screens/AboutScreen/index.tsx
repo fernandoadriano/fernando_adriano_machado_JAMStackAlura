@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Box from 'src/components/layout/Box';
-import Grid from 'src/components/layout/Grid';
-import Text from 'src/components/foundation/Text';
+import Box from '../../layout/Box';
+import Grid from '../../layout/Grid';
+import Text from '../../foundation/Text';
 
 export { getContent } from './getContent';
 export default function AboutScreen({ messages }) {

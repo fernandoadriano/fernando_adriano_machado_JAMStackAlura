@@ -143,38 +143,46 @@ const FormContent = () => {
   );
 };
 
-const FormCadastro = (propsModal: any) => (
-  <Grid.Row
-    marginLeft={0}
-    marginRight={0}
-    flex={1}
-    justifyContent="flex-end"
-  >
-    <Grid.Col
-      display="flex"
-      paddingRight={{ md: '0' }}
-      flex={1}
-      value={{ xs: 12, md: 5, lg: 4 }}
-    >
-      <Box
-        boxShadow="-10px 0px 24px rgba(7, 12, 14, 0.1)"
-        display="flex"
-        flexDirection="column"
-        justifyContent="center"
-        flex={1}
-        padding={{
-          xs: '16px',
-          md: '85px',
-        }}
-        backgroundColor="white"
-          // eslint-disable-next-line react/jsx-props-no-spreading
-        {...propsModal}
-      >
-        <FormContent />
-      </Box>
-    </Grid.Col>
-  </Grid.Row>
+interface IFormCadastro {
+  propsDoModal: any;
+}
+const FormCadastro = ({ propsDoModal }: IFormCadastro) => {
+  console.log('===>', JSON.stringify(propsDoModal, null, 4));
 
-);
+  return (
+    <Grid.Row
+      marginLeft={0}
+      marginRight={0}
+      flex={1}
+      justifyContent="flex-end"
+    >
+      <Grid.Col
+        display="flex"
+        paddingRight={{ md: '0' }}
+        flex={1}
+        value={{ xs: 12, md: 5, lg: 4 }}
+      >
+        <Box
+          boxShadow="-10px 0px 24px rgba(7, 12, 14, 0.1)"
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          flex={1}
+          padding={{
+            xs: '16px',
+            md: '85px',
+          }}
+          backgroundColor="white"
+          // data-modal-safe-area="true"
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...propsDoModal}
+        >
+          <FormContent />
+        </Box>
+      </Grid.Col>
+    </Grid.Row>
+
+  );
+};
 
 export default FormCadastro;
