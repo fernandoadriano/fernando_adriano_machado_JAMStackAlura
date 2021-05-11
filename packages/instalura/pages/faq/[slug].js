@@ -1,6 +1,6 @@
 import React from 'react';
-import FAQQuestionScreen from 'src/components/screens/FAQQuestionScreen';
-import websitePageHOC from 'src/components/wrappers/WebSitePage/hoc';
+import FAQQuestionScreen from '@fernandoadriano/ui/src/components/screens/FAQQuestionScreen';
+import websitePageHOC from '@fernandoadriano/ui/src/components/wrappers/WebSitePage/hoc';
 
 function FAQInternaScreen({ category, question }) {
   return (
